@@ -1,0 +1,22 @@
+1-Actions: 
+will create switchable actions
+-index.js. export const selectUser =data=>{ return {type, payload}}
+
+2-Components:
+-app.js. import all containers files
+
+3-Containers:
+-data-list.js. import selectUser from actions-index
+will use the prop1 and the map one
+                  and mapStateProps(state) the appropriate props then recreate prop1
+                 and dispatch selectUser
+                 and export connection
+-data-details.js. :will use this prop2
+                mapStateProps(state) the appropriate props then recreate prop2
+                and export connection
+
+4-Reducers.
+-index.js. import all reducers  to combine from the current folder  
+             then create all appropriate prop1-2 of the two reducers
+-data-reducer1.js . return json-fields -database
+-active-dara-reducer2.js must be the function to switch action.type by case.
