@@ -18,7 +18,9 @@ class UserDetail extends Component {
           Full Name: {this.props.user.firstName} {this.props.user.lastName}
         </p>
 
-        <p>Profil: {this.props.user.description}</p>
+        <p data-tip="This is the profil">
+          Profil: {this.props.user.description}
+        </p>
 
         <p>Age: {this.props.user.age}</p>
       </div>
