@@ -15,10 +15,15 @@ const store = createStore(allReducers);
 //sky-store-done
 
 //pass the sky-store to the reactDom rendered like any component
+
+
 //1-import and make provider
 ReactDOM.render(
+ 
   //The PROVIDER is a new root component with to
   //make the store available for all container-data-components accessible
-<Provider store={store}>
-<App /> 
-</Provider>, document.getElementById("root"));
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
+);
