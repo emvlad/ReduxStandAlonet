@@ -12,13 +12,28 @@ class UserDetail extends Component {
     return (
       <div>
         <ReactTooltip />
-        <img src={this.props.user.thumbnail} data-tip="whatsUp" />
+        <img
+          src={this.props.user.thumbnail}
+          data-tip="whatsUp"
+          data-type="success"         
+          data-place="bottom"
+          data-effect="solid"
+          data-delay-hide="1000"
+        />
 
-        <p data-tip="This tip is the full name">
+        <p
+          data-tip="This tip is the full name"
+          data-place="bottom"
+          data-effect="float"
+          data-scroll-hide="true"
+        >
           Full Name: {this.props.user.firstName} {this.props.user.lastName}
         </p>
 
-        <p data-tip="This is the profil">
+        <p 
+        data-tip="This is the profil"
+        data-place="bottom"
+        data-delay-show="1000">
           Profil: {this.props.user.description}
         </p>
 
