@@ -13,7 +13,7 @@ import tooltips from "./reducer-tooltips";
 //always add all reducers created into the main object allReducers.
 //it takes each reducer like an object
 
-//2-obs: two props is created to take replace to both imported container-files
+//2-obs: two props is created to take place to both imported container-files
 const allReducers = combineReducers({
   users: UserReducer,
   //this object users in here represents
