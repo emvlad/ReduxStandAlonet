@@ -6,15 +6,16 @@ import TuilePagePrincipale from './TuilePagePrincipale/TuilePagePrincipale'
 import MenuSuperieur from './MenuSuperieur/MenuSuperieur'
 import Workspace from './Workspace/Workspace'
 import Utilisateurs from './Utilisateurs/Utilisateurs'
-
-import Datas from './Datas/Datas'
-
-
 import IFrame from './IFrame/IFrame'
 import DashboardSelection from './DashboardSelection/DashboardSelection'
+
+import DashboardSelect from './DashboardSelection/DashboardSelect'
+import { dashboardSelect, } from '../../actions/dashboardselect'
+
 import { chargementDashboards } from '../../actions/dashboard'
 import { chargementUtilisateurs } from '../../actions/utilisateurs'
 import { selectionMenuPrincipal, } from '../../actions/menuPrincipal'
+
 import { dashboardSelection } from '../../actions/dashboard'
 
 import fctUtils from '../../utils/index'
@@ -91,7 +92,9 @@ class PagePrincipale extends Component {
         let contenuPage
         switch(this.props.pagePrincipale) {
             case 'tableauxdebord':
-                contenuPage = <DashboardSelection isEditable={false} />
+               // contenuPage = <DashboardSelection isEditable={false} />
+              contenuPage = <DashboardSelect isEditable={false} />
+
                 break
             case 'configuration':
                 contenuPage = <Workspace />
@@ -113,9 +116,6 @@ class PagePrincipale extends Component {
                 break
             case 'dashboardSelection' :
                 contenuPage = <DashboardSelection />
-                break
-            case 'datas' :
-                contenuPage = <Datas />
                 break
             case null:
             default:
@@ -145,6 +145,8 @@ class PagePrincipale extends Component {
                                 hauteur={ this.state.hauteurTuile }
                                 titre={traduction['userTitles'][this.props.langue] }
                                 logo={ 'users' }
+
+
                                 description= {traduction['managUserAccess'][this.props.langue] }
                             />
                         </Row>
@@ -161,18 +163,20 @@ class PagePrincipale extends Component {
                                 idx={ 'help' }
                                 titre={ 'S.O.S.' }
                                 logo={ 'warning' }
+
                                 description={traduction['askHelps'][this.props.langue] }
+
                                 hauteur={ this.state.hauteurTuile }
                             />
                             <TuilePagePrincipale
                                 idx={ 'layout' }
                                 titre={traduction['highViewTitle'][this.props.langue] }
                                 logo={ 'desktop' }
+
                                 description={traduction['highViews'][this.props.langue] }
                                 hauteur={ this.state.hauteurTuile }
                             />
                         </Row>
-
                         <Row className="show-grid">
                             <TuilePagePrincipale
                                 idx={ 'documentation' }
@@ -181,12 +185,8 @@ class PagePrincipale extends Component {
                                 description={traduction['showDocs'][this.props.langue] }
                                 hauteur={ this.state.hauteurTuile }
                             />
-
                             <TuilePagePrincipale
-                                idx={ 'datas' }
-                                titre={traduction['datazone'][this.props.langue] }
-                                logo={ 'desktop' }
-                                description={traduction['dataDetail'][this.props.langue] }
+                                idx={ '' }
                                 hauteur={ this.state.hauteurTuile }
                             />
                             <TuilePagePrincipale
@@ -219,8 +219,8 @@ function matchDispatchToProps(dispatch){
         chargementUtilisateurs,
         chargementDashboards,
         selectionMenuPrincipal,
-        dashboardSelection
-
+        dashboardSelection,
+        dashboardSelect
     }, dispatch)
 }
 
